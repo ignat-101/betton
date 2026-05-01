@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ton-flashbet
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python -m gunicorn backend.app:app
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_WEBHOOK_URL
+        sync: false
+      - key: TON_CENTER_API_KEY
+        sync: false
+      - key: ADMIN_WALLET_ADDRESS
+        value: UQCfdyrb0Fj8lA32OfizTwGY829tTzihsEYl1FrpBzeVKdi0
+      - key: FLASK_ENV
+        value: production
