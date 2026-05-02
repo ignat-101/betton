@@ -3,7 +3,7 @@ services:
     name: ton-flashbet
     env: python
     buildCommand: pip install -r backend/requirements.txt
-    startCommand: gunicorn backend.app:app
+    startCommand: python -m gunicorn backend.app:app
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
